@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./adminHome.xhtml">
+
+            <ui:define name="content">
+                <div class="container" style="background-color: #d58512">
+                    <div class="row" style="margin-top: 5px">
+                        <div class="col-md-12" style="background-color: #1b6d85">
+                            <h2>Employee information</h2>
+                        </div>  
+                    </div>
+                    <table class="table table-bordered" style="margin-top: 10px">
+                        <tr style="background-color: #a6e1ec">
+                            <th>Id</th>
+                            <th>full Name</th>
+                            <th>Employee Id</th>
+                            <th>Designation</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Mobile no</th>
+                            <th>Join date</th>
+                            <th>Gender</th>
+                            <th>Salary</th>
+                            <th>Edit</th>
+                            <th>Delete</th> 
+                        </tr>
+                        <c:forEach var="empinfo" items="#{empController.showEmpInfo()}">
+                            <tr>
+                                <td><h:outputLabel value="#{empinfo.id}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{empinfo.name}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{empinfo.emp_id}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{empinfo.degi}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{empinfo.address}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{empinfo.email}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{empinfo.phon}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{empinfo.join_date}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{empinfo.gender}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{empinfo.salary}"></h:outputLabel></td>
+                                <td>
+                                    <h:form>
+                                        <p:commandButton value="Edit" action="#{empController.empEdit(empinfo)}" styleClass="btn btn-success"></p:commandButton>
+                                    </h:form>
+                                </td>
+                                <td>
+                                    <h:form>
+                                        <p:commandButton value="Delete" action="#{empController.deleteEmployee(empinfo)}" styleClass="btn btn-danger"></p:commandButton>
+                                    </h:form>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

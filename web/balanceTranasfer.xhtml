@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./adminHome.xhtml">
+
+            <ui:define name="content">
+                <div class="container" style="background-color: #d58512">
+                    <div class="row" style="margin-top: 5px">
+                        <div class="col-md-12" style="background-color: #1b6d85">
+                            <h2>Tranasfer Here</h2>
+                        </div>  
+                    </div>
+                    <table class="table table-bordered" style="margin-top: 5px">
+                        <tr style="background-color: #a6e1ec">
+                            <th>NAME.</th>
+                            <th>ACCOUNT NO.</th>
+                            <th>MICT NO.</th>
+                            <th>BALANCE.</th>
+                            <th>DEPOSITE.</th>
+                        </tr>
+                        <c:forEach var="bal" items="#{contollerCreateAccount.showBalance()}">
+                            <tr>
+                                <td><h:outputLabel value="#{bal.name}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{bal.acc}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{bal.micr_no}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{bal.balance}"></h:outputLabel></td>
+                                <td>
+                                    <h:form>
+                                        <p:commandButton  action="#{contollerCreateAccount.tranasferShow(bal)}" value="Tranasfer" class="btn btn-primary"/>
+                                    </h:form>
+                                </td>
+                            </tr>
+                        </c:forEach>
+
+                    </table>    
+                </div>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./adminHome.xhtml">
+            <ui:define name="content">
+                <div class="container" style="background-color: #1b6d85">
+                    <div class="row" style="background-color: aquamarine">
+                        <div class="col-md-12">
+                            <h2 style="margin-left: 500px">Employee Form</h2>
+                        </div>
+                    </div>
+                    <div style="margin-top: 50px ">
+                        <div class="row">
+                            <div class="col-md-1">
+                            </div>                
+                            <div class="col-md-10">
+                                <h:form style="background-color: aquamarine">
+                                    <p:growl id="growl" showDetail="true" sticky="true"/>                                    
+                                    <div>
+                                        <label for="name"><b>Full Name</b></label>
+                                        <p:inputText id="name" type="text" styleClass="form-control" value="#{empController.emp.name}" placeholder="Enter Full Name"></p:inputText>
+                                    </div>                                    
+                                    <div>
+                                        <label for="emp_id"><b>Employee Id</b></label>
+                                        <p:inputText id="emp_id"  styleClass="form-control" value="#{empController.emp.emp_id}" placeholder="Enter Employee Id"></p:inputText>
+                                    </div>
+
+                                    <div>
+                                        <label for="degi"><b>Designation</b></label>
+                                        <p:inputText id="degi"  styleClass="form-control" value="#{empController.emp.degi}" placeholder="Enter Employee Designation"></p:inputText>
+                                    </div>
+
+                                    <div>
+                                        <label for="address"><b>Address</b></label>
+                                        <p:inputText id="address" type="text" styleClass="form-control" value="#{empController.emp.address}" placeholder="Enter Employee Address"></p:inputText>
+                                    </div>
+
+                                    <div>
+                                        <label for="email"><b>Email</b></label>
+                                        <p:inputText id="email" type="text" styleClass="form-control" value="#{empController.emp.email}" placeholder="Enter Employee Email"></p:inputText>
+                                    </div>
+                                    <div>
+                                        <label for="phon"><b>Mobile No</b></label>
+                                        <p:inputText id="phon" type="text" styleClass="form-control" value="#{empController.emp.phon}" placeholder="Enter Mobile No"></p:inputText>
+                                    </div>                                
+
+                                    <div class="form-group">
+                                        <label for="dob"><b>Join Date</b></label>
+                                        <p:calendar id="dob" pattern="dd-MM-yyyy"  styleClass="form-control" value="#{empController.emp.join_date}"></p:calendar> 
+                                    </div>
+                                    <div class="form-group">                             
+                                        <label for="gender"><b>Gender</b></label>
+                                        <p:selectOneRadio  id="gender" styleClass="form-control" style="width: 100%" value="#{empController.emp.gender}">
+                                            <f:selectItem itemLabel="Male" itemValue="Male" />
+                                            <f:selectItem itemLabel="FeMale" itemValue="Female" />                                
+                                        </p:selectOneRadio>  
+                                    </div>
+                                    <div>
+                                        <label for="salary"><b>Salary</b></label>
+                                        <p:inputText id="salary" type="number" styleClass="form-control" value="#{empController.emp.salary}" placeholder="Enter Employee Salary"></p:inputText>
+                                    </div>
+                                    <div class="form-group" style="margin-left: 850px">                                        
+                                        <p:commandButton value="Submit" action="#{empController.saveEmployee()}" styleClass="btn btn-success" style="margin-bottom: 5px" update="growl"></p:commandButton>  
+                                    </div> 
+                                </h:form>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-1" style="margin-bottom: 100px">
+                        </div>
+
+                    </div>
+                </div> 
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

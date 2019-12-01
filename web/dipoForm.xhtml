@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./adminHome.xhtml">
+
+            <ui:define name="content">
+                <div style="margin-top: 50px ">
+                    <div class="row">
+                        <div class="col-md-2">
+                        </div>
+
+                        <div class="col-md-8">
+                            <h:form style="background-color: aquamarine">
+                                <p:growl id="growl" showDetail="true" sticky="true"/>
+                                <div>
+                                    <label for="id"><b>ID :</b></label>
+                                    <p:inputText id="id" value="#{contollerCreateAccount.balance.id}" styleClass="form-control" readonly="true"></p:inputText>
+                                </div>
+
+                                <div>
+                                    <label for="name"><b>Name :</b></label>
+                                    <p:inputText id="name" value="#{contollerCreateAccount.balance.name}" styleClass="form-control" readonly="true"></p:inputText>
+                                </div>
+
+                                <div>
+                                    <label for="acc"><b>Account No :</b></label>
+                                    <p:inputText id="acc" value="#{contollerCreateAccount.balance.acc}" styleClass="form-control" readonly="true"></p:inputText>
+                                </div>
+
+                                <div>
+                                    <label for="mrcr"><b>MRCR No :</b></label>
+                                    <p:inputText id="mrcr" value="#{contollerCreateAccount.balance.micr_no}" styleClass="form-control" readonly="true"></p:inputText>
+                                </div>
+
+                                <div>
+                                    <label for="balance"><b>Balance :</b></label>
+                                    <p:inputText id="balance" value="#{contollerCreateAccount.balance.balance}" styleClass="form-control" readonly="true"></p:inputText>
+                                </div>
+                                
+                                <div>
+                                    <label for="depoBalance"><b>Deposite Balance :</b></label>
+                                    <p:inputText id="depoBalance" value="#{contollerCreateAccount.depoBalance}" styleClass="form-control" ></p:inputText>
+                                </div>
+                                <p:commandButton value="deposite" styleClass="btn btn-danger" action="#{contollerCreateAccount.updateDepo()}" update="growl"/>
+                                <div style="margin-bottom: 50px">
+                                    
+                                </div>
+                            </h:form> 
+                        </div>
+
+                        <div class="col-md-2">
+                        </div>
+
+                    </div>
+                </div> 
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

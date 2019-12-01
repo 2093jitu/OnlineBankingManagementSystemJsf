@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./adminHome.xhtml">
+
+            <ui:define name="content">
+                <div class="container" style="background-color: #d58512">
+                    <div class="row" style="margin-top: 5px">
+                        <div class="col-md-12" style="background-color: #1b6d85">
+                            <h2>LOAN REQUEST</h2>
+                        </div>  
+                    </div>
+                    <table class="table table-bordered" style="margin-top: 10px">
+                        <tr style="background-color: #a6e1ec">
+                            <th>ID.</th>
+                            <th>NAME.</th>
+                            <th>CITY</th>
+                            <th>NID NO.</th>
+                            <th>GENDER</th>
+                            <th>EMP POSITION</th>
+                            <th>NATIONLITY</th>
+                            <th>LOAN AMMOUNT</th>
+                            <th>TIME OF LOAN</th>
+                            <th>REQUEST DATE</th>
+                            <th>STATUES</th> 
+                        </tr>
+                        <c:forEach var="lon" items="#{controllLoan.showLoanRequest()}">
+                            <tr>
+                                <td><h:outputLabel value="#{lon.id}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{lon.name}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{lon.city}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{lon.nid_no}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{lon.gender}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{lon.emp_position}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{lon.nationality}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{lon.loanamount}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{lon.tmofloan}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{lon.requestdate}"></h:outputLabel></td>                                
+                                <td><h:outputLabel value="#{lon.staturs}"></h:outputLabel></td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>  
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

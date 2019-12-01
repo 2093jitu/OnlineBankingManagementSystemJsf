@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+        <ui:composition template="./homePage.xhtml">
+
+            <ui:define name="content">
+                <div class="container" style="background-color: #1b6d85">
+                    <div class="row" style="background-color: aquamarine">
+                        <div class="col-md-12">
+                            <h2 style="margin-left: 500px">Account Form</h2>
+                        </div>
+                    </div>
+                    <div style="margin-top: 50px ">
+                        <div class="row">
+                            <div class="col-md-1">
+                            </div>                
+                            <div class="col-md-10">
+                                <h:form style="background-color: aquamarine">
+                                    <p:growl id="growl" showDetail="true" sticky="true"/>                                    
+                                    <div>
+                                        <label for="fName"><b>fast Name</b></label>
+                                        <p:inputText id="fName" type="text" styleClass="form-control" value="#{accountReqCon.accountReq.f_name}" placeholder="Enter Fast Name"></p:inputText>
+                                    </div>
+                                    <div>
+                                        <label for="lName"><b>Last Name</b></label>
+                                        <p:inputText id="lName" type="text" styleClass="form-control" value="#{accountReqCon.accountReq.l_name}" placeholder="Enter Last Name"></p:inputText>
+                                    </div>
+                                    <div>
+                                        <label for="email"><b>Email</b></label>
+                                        <p:inputText id="email"  styleClass="form-control" value="#{accountReqCon.accountReq.email}" placeholder="Enter Email no"></p:inputText>
+                                    </div>
+                                    <div>
+                                        <label for="phon"><b>Phon Number</b></label>
+                                        <p:inputText id="phon"  styleClass="form-control" value="#{accountReqCon.accountReq.phon_no}" placeholder="Enter Phon number."></p:inputText>
+                                    </div>                                
+                                    <div>
+                                        <label for="address"><b>Address</b></label>
+                                        <p:inputText id="address" type="text" styleClass="form-control" value="#{accountReqCon.accountReq.address}" placeholder="Enter Address"></p:inputText>
+                                    </div>
+                                    <div>
+                                        <label for="accountType"><b>Account Type</b></label><br></br>
+                                        <p:selectOneMenu id="accountType" styleClass="form-control" style="width: 100%" value="#{accountReqCon.accountReq.account_type}" >                                
+                                            <f:selectItem itemLabel="Saving" itemValue="Saving" />
+                                            <f:selectItem itemLabel="Current" itemValue="Current" />
+                                        </p:selectOneMenu>
+                                    </div>
+                                    <div>
+                                        <label for="nid"><b>NID. No</b></label>
+                                        <p:inputText id="nid"  styleClass="form-control" value="#{accountReqCon.accountReq.nid_no}" placeholder="Enter NID No."></p:inputText>
+                                    </div>                                  
+
+                                    <div class="form-group">
+                                        <label for="dob"><b>Date Of birth</b></label>
+                                        <p:calendar id="dob" pattern="dd-MM-yyyy"  styleClass="form-control" value="#{accountReqCon.accountReq.dob}"></p:calendar> 
+                                    </div>
+                                    <div class="form-group" style="margin-left: 680px">                                        
+                                        <p:commandButton value="Send Create new Account Request" action="#{accountReqCon.saveAccReq()}" styleClass="btn btn-danger" style="margin-bottom: 5px" update="growl"></p:commandButton>  
+                                    </div> 
+                                </h:form>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-1" style="margin-bottom: 100px">
+                        </div>
+
+                    </div>
+                </div>                
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

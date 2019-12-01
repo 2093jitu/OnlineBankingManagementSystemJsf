@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./adminHome.xhtml">
+
+            <ui:define name="content">
+                <div class="container" style="background-color: #d58512">
+                    <div class="row" style="margin-top: 5px">
+                        <div class="col-md-12" style="background-color: #1b6d85">
+                            <h2>Statement</h2>
+                        </div>  
+                    </div>
+                    <table class="table table-bordered" style="margin-top: 10px">
+                        <tr style="background-color: #a6e1ec">
+                            <th>Name</th>
+                            <th>Account No</th>
+                            <th>Date</th>
+                            <th>Deposite Ammount</th>
+                            <th>Tranasfer Ammount</th>
+                            <th>Transfer Account</th>
+                            <th>Withdrow</th>                            
+                        </tr>
+                        <c:forEach var="sta" items="#{contollerCreateAccount.showStatement()}">
+                            <tr>
+                                <td><h:outputLabel value="#{sta.name}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{sta.acc}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{sta.date}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{sta.depo}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{sta.transfer}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{sta.transfar_acc}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{sta.withdraw}"></h:outputLabel></td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+
+    </body>
+</html>

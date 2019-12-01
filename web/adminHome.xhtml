@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet  name="./css/bootstrap.min_1.css"/>
+        <h:outputStylesheet  name="./css/font-awesome.min.css"/>     
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"/>
+        <h:outputStylesheet  name="./css/style.css"/>
+    </h:head>
+    <h:body>        
+        <div class="container" style="margin-top: 30px">
+            <div class="row">
+                <div class="col-md-12 menue">
+                    <h:link outcome="homePage" value="Home Page"></h:link>
+                    <ui:insert name="menue">
+                        <div class="row">
+                            <nav class="navbar navbar-inverse">
+                                <div class="container-fluid">                                    
+                                    <div class="collapse navbar-collapse" id="myNavbar">
+                                        <ul class="nav navbar-nav">
+                                            <li class="active">
+                                                <h:link outcome="adminHome" value="CREATE ACCOUNT"/>                                                
+                                            </li>
+                                            <li class="active">                                                
+                                                <h:link outcome="balanceDepo" value="DEPOSITE"/> 
+                                            </li>
+                                            <li class="active">                                                
+                                                <h:link outcome="balanceWithdrow" value="WITHDROW"/> 
+                                            </li>
+                                            <li class="active">
+                                                <h:link outcome="balanceTranasfer" value="TRNASFER"/> 
+                                            </li>
+                                            <li class="active">
+                                                <h:link outcome="statementTable" value="STATEMENT"/> 
+                                            </li>
+                                            <li class="active">
+                                                <h:link outcome="customerList" value="CUSTOMER LIST"/> 
+                                            </li>
+                                            <li class="active">
+                                                <h:link outcome="tranjection" value="TRANJECTION"/> 
+                                            </li>
+                                            <li class="active">
+                                                <h:link outcome="loanRequestTable" value="LOAN REQUEST"/> 
+                                            </li>
+                                            <li class="active">
+                                                <h:link outcome="accountReqTab" value="ACCOUNT REQUEST"/> 
+                                            </li>
+                                            <li class="active">
+                                                <h:link outcome="employeeForm" value="ADD EMPLOYEE"/> 
+                                            </li>
+                                            <li class="active">
+                                                <h:link outcome="employeeInfo" value="EMPLOYEE INFO"/> 
+                                            </li>
+                                            
+                                        </ul>                                        
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </ui:insert>
+                </div>
+            </div>
+            <!--end meneu-->
+            <div class="row" style="background-color: #1b6d85">
+                <div id="content" class="center_content">
+                    <ui:insert name="content">
+                        <div class="col-md-1">
+                            
+                        </div>
+                        <div class="row" style="margin-top: 5px">                            
+                            <div class="col-md-10" style="background-color: aquamarine">
+                                <h2>Create A New Account</h2>
+                            </div>  
+                        </div>
+                        <div style="margin-top: 10px ">
+                            <div class="row">
+                                <div class="col-md-2">
+                                </div>
+
+                                <div class="col-md-8" style="background-color: aquamarine">
+                                    <h:form >
+                                        <p:growl id="growl" showDetail="true" sticky="true"/>
+                                        <div>
+                                            <label for="accountNo"><b>Account No.</b></label>
+                                            <p:inputText id="accountNo" type="number" value="#{contollerCreateAccount.createAccount.acc}" styleClass="form-control"></p:inputText>
+                                        </div>
+                                        <div>
+                                            <label for="name"><b>Name</b></label>
+                                            <p:inputText id="name" type="text" value="#{contollerCreateAccount.createAccount.name}" styleClass="form-control"></p:inputText>
+                                        </div>
+                                        <div>
+                                            <label for="dob"><b>Date Of birth</b></label>
+                                            <p:calendar id="dob" pattern="dd-MM-yyyy"  styleClass="form-control" value="#{contollerCreateAccount.createAccount.dob}"></p:calendar>
+                                        </div>
+                                        <div>
+                                            <label for="pin"><b>Pin No.</b></label>
+                                            <p:inputText id="pin" type="number" value="#{contollerCreateAccount.createAccount.pin}" styleClass="form-control"></p:inputText>
+                                        </div>
+                                        <div>
+                                            <label for="accounttype"><b>Account Type</b></label>
+                                            <p:selectOneMenu id="accounttype" styleClass="form-control" style="width: 100%"  value="#{contollerCreateAccount.createAccount.acc_type}">                                
+                                                <f:selectItem itemLabel="Saving" itemValue="Saving" />
+                                                <f:selectItem itemLabel="Current" itemValue="Current" />
+                                            </p:selectOneMenu>
+                                        </div>
+                                        <div>
+                                            <label for="nationlity"><b>Nationlity.</b></label><br></br>
+                                            <p:selectOneMenu id="nationality"  styleClass="form-control" style="width: 100%" value="#{contollerCreateAccount.createAccount.nationality}">                                
+                                                <f:selectItem itemLabel="Bangladesh" itemValue="bangladesh" />
+                                                <f:selectItem itemLabel="India" itemValue="India" />
+                                                <f:selectItem itemLabel="Pakistan" itemValue="Pakistan" />
+                                                <f:selectItem itemLabel="Napal" itemValue="Napal" />  
+                                            </p:selectOneMenu>
+                                        </div>
+                                        <div>
+                                            <label for="cast"><b>Cast</b></label>
+                                            <p:inputText id="cast" type="text" value="#{contollerCreateAccount.createAccount.caste}" styleClass="form-control"></p:inputText>
+                                        </div>
+
+                                        <!--fast saven-->
+                                        <div>
+                                            <label for="micr"><b>MICR No.</b></label>
+                                            <p:inputText id="micr" type="number" value="#{contollerCreateAccount.createAccount.micr_no}" styleClass="form-control"></p:inputText>
+                                        </div>
+                                        <div>                             
+                                            <label for="gender"><b>Gender</b></label>
+                                            <p:selectOneRadio  id="gender" styleClass="form-control" style="width: 100%" value="#{contollerCreateAccount.createAccount.gender}">
+                                                <f:selectItem itemLabel="Male" itemValue="Male" />
+                                                <f:selectItem itemLabel="FeMale" itemValue="Female" />                                
+                                            </p:selectOneRadio>  
+                                        </div>
+
+                                        <div>
+                                            <label for="mob"><b>Mobile No.</b></label>
+                                            <p:inputText id="mob" type="text" value="#{contollerCreateAccount.createAccount.mob}" styleClass="form-control"></p:inputText>
+                                        </div>
+                                        <div>
+                                            <label for="address"><b>Address</b></label>
+                                            <p:inputText id="address" type="text" value="#{contollerCreateAccount.createAccount.address}" styleClass="form-control"></p:inputText>
+                                        </div>
+                                        <div>
+                                            <label for="seq_q"><b>Sequrity Qus.</b></label>
+                                            <p:selectOneMenu id="seq_q" styleClass="form-control" value="#{contollerCreateAccount.createAccount.sec_q}" style="width: 100%">                                
+                                                <f:selectItem itemLabel="What is your name?" itemValue="What is your name?" />
+                                                <f:selectItem itemLabel="What is your mother maiden name?" itemValue="What is your mother maiden name?" />                                  
+                                            </p:selectOneMenu> 
+                                        </div>
+                                        <div>
+                                            <label for="seq_a"><b>Sequriry Ans.</b></label>
+                                            <p:inputText id="seq_a" type="text" value="#{contollerCreateAccount.createAccount.sec_a}" styleClass="form-control"></p:inputText>
+                                        </div>                            
+                                        <div>
+                                            <label for="balance"><b>Balance</b></label>
+                                            <p:inputText id="balance" type="number" value="#{contollerCreateAccount.createAccount.balance}" styleClass="form-control"></p:inputText>
+                                        </div>                          
+                                        <div style="margin-left: 700px">
+                                            <p:commandButton value="Create" styleClass="btn btn-primary" style="margin-top: 10px" action="#{contollerCreateAccount.saveData(contollerCreateAccount)}" update="growl"/>
+                                        </div>
+                                    </h:form> 
+                                </div>
+                                <div class="col-md-2">
+                                </div>
+
+                            </div>
+                        </div> 
+                    </ui:insert>
+                </div>
+            </div>          
+
+            <div id="bottom" style="margin-bottom: 100px">
+                <ui:insert name="bottom">                    
+                     <div class="row pt-4 pb-3 " style="background-color: #b4d1c6; margin-top: 25px;" >
+                        <div class="col-md-3">
+                            <h2>Branch Office</h2>
+                            <p>6, Dhanmondi, Dhaka-1206<br/>
+                                contace: +02 365896<br/>
+                                email: mmjitu@gmail.com</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h2>Branch Office</h2>
+                            <p>12, Mirpur, Dhaka-1206<br/>
+                                contace: +07 3678787<br/>
+                                email: mmjitu2019@gmail.com</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h2>Branch Office</h2>
+                            <p>11, Motijil, Dhaka-1100<br/>
+                                contace: +02 365896<br/>
+                                email: mdAlim@gamil.com</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h2>Branch Office</h2>
+                            <p>6, Kolabagan, Dhaka-1300<br/>
+                                contace: +02 365896<br/>
+                                email: rabbi@gmail.com</p>
+                        </div>
+                    </div>
+                </ui:insert>
+            </div>
+        </div>
+
+    </h:body>
+</html>

@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+        <ui:composition template="./homePage.xhtml">
+            <ui:define name="content">
+                <div class="container" style="background-color: #1b6d85">
+                    <div class="row" style="background-color: aquamarine">
+                        <div class="col-md-12">
+                            <h2 style="margin-left: 500px">Loan Form</h2>
+                        </div>
+                    </div>
+                    <div style="margin-top: 50px ">
+                        <div class="row">
+                            <div class="col-md-1">
+                            </div>                
+                            <div class="col-md-10">
+                                <h:form style="background-color: aquamarine">
+                                    <p:growl id="growl" showDetail="true" sticky="true"/>
+                                    <div>
+                                        <label for="name"><b>Name</b></label>
+                                        <p:inputText id="name" type="text" styleClass="form-control" value="#{controllLoan.loan.name}" placeholder="Enter Name"></p:inputText>
+                                    </div>                                    
+                                    <div>
+                                        <label for="city"><b>City</b></label>
+                                        <p:inputText id="city"  styleClass="form-control" value="#{controllLoan.loan.city}" placeholder="Enter City"></p:inputText>
+                                    </div>
+                                    <div>
+                                        <label for="nid"><b>NID. No</b></label>
+                                        <p:inputText id="nid"  styleClass="form-control" value="#{controllLoan.loan.nid_no}" placeholder="Enter NID No."></p:inputText>
+                                    </div>
+                                    <div>                                        
+                                        <label for="genter"><b>Gender</b></label>
+                                        <p:selectOneRadio  id="genter" value="#{controllLoan.loan.gender}" styleClass="form-control" >
+                                            <f:selectItem itemLabel="Male" itemValue="Male" />
+                                            <f:selectItem itemLabel="FeMale" itemValue="Female"/>                               
+                                        </p:selectOneRadio>                                      
+                                    </div>
+                                    <div>
+                                        <label for="empPosition"><b>Employee/Position Statues</b></label>
+                                        <p:inputText id="empPosition" type="text" value="#{controllLoan.loan.emp_position}" styleClass="form-control" placeholder="Enter Emp Position"></p:inputText>
+                                    </div>
+                                    <div>
+                                        <label for="nationality"><b>Nationality</b></label>
+                                        <p:inputText id="nationality" type="text" value="#{controllLoan.loan.nationality}" styleClass="form-control" placeholder="Enter Nationality"></p:inputText>
+                                    </div>
+
+                                    <div>
+                                        <label for="lonAmount"><b>Loan Amount</b></label>
+                                        <p:inputText id="lonAmount" type="text" value="#{controllLoan.loan.loanamount}" styleClass="form-control" placeholder="Enter Loan Ammount"></p:inputText>
+                                    </div>
+                                    <div>
+                                        <label for="timeofloan"><b>Time Of Loan (no of year)</b></label>
+                                        <p:inputText id="timeofloan" type="text" value="#{controllLoan.loan.tmofloan}" styleClass="form-control" placeholder="Enter Loan Time"></p:inputText>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label><b>Request Date</b></label>
+                                        <p:calendar  pattern="dd-MM-yyyy" value="#{controllLoan.loan.requestdate}" styleClass="form-control"></p:calendar> 
+                                    </div>
+                                    <div class="form-group" style="margin-left: 780px">                                        
+                                        <p:commandButton value="Send Loan Request" action="#{controllLoan.saveLoanReq()}" styleClass="btn btn-danger" style="margin-bottom: 5px" update="growl"></p:commandButton>  
+                                    </div> 
+                                </h:form>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-1" style="margin-bottom: 100px">
+                        </div>
+
+                    </div>
+                </div>                
+
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

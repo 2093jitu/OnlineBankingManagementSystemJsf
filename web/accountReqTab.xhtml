@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      
+     
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <body>
+
+        <ui:composition template="./adminHome.xhtml">
+
+            <ui:define name="content">
+                <div class="container" style="background-color: #d58512">
+                    <div class="row" style="margin-top: 5px">
+                        <div class="col-md-12" style="background-color: #1b6d85">
+                            <h2>ACCOUNT REQUEST</h2>
+                        </div>  
+                    </div>
+                    <table class="table table-bordered" style="margin-top: 10px">
+                        <tr style="background-color: #a6e1ec">                            
+                            <th>FAST NAME</th>
+                            <th>LAST NAME</th>
+                            <th>EMAIL</th>
+                            <th>PHON NUMBER</th>
+                            <th>ADDRESS</th>
+                            <th>ACCOUNT TYPE</th>
+                            <th>NID NO</th>
+                            <th>DATE OF BIRTH</th>                            
+                            <th>STATUES</th> 
+                        </tr>
+                        <c:forEach var="acc_req" items="#{accountReqCon.showAccReqData()}">
+                            <tr>
+                                <td><h:outputLabel value="#{acc_req.f_name}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{acc_req.l_name}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{acc_req.email}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{acc_req.phon_no}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{acc_req.address}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{acc_req.account_type}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{acc_req.nid_no}"></h:outputLabel></td> 
+                                <td><h:outputLabel value="#{acc_req.dob}"></h:outputLabel></td>
+                                <td><h:outputLabel value="#{acc_req.statues}"></h:outputLabel></td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>     
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
